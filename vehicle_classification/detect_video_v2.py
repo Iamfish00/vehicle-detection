@@ -14,10 +14,14 @@ import gc
 import torch
 from ultralytics import YOLO
 
-# ====================== CẤU HÌNH ======================
-MODEL_PATH = "D:/html/iot/vehicle_classification/yolov8s.pt"
-VIDEO_DIR  = "D:/html/iot/test_files"
-OUTPUT_DIR = "D:/html/iot/test_files/output_v2"
+# ====================== CẤU HÌNH ĐƯỜNG DẪN TƯƠNG ĐỐI ======================
+BASE_DIR = os.path.dirname(os.path.abspath(__file__)) # Thư mục chứa file script này (vehicle_classification)
+ROOT_DIR = os.path.dirname(BASE_DIR)                  # Thư mục gốc dự án (iot)
+
+MODEL_PATH = os.path.join(BASE_DIR, "yolov8s.pt")
+VIDEO_DIR  = os.path.join(ROOT_DIR, "test_files")
+OUTPUT_DIR = os.path.join(VIDEO_DIR, "output_v2")
+
 CONF       = 0.35     # Ngưỡng confidence
 IMGSZ      = 640
 HEAVY_THRESHOLD = 10

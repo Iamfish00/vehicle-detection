@@ -63,12 +63,9 @@ def find_best_model():
             if os.path.exists(best_path):
                 return best_path
 
-    # Dùng mô hình pretrained COCO nếu chưa huấn luyện
-    if os.path.exists("yolov8n.pt"):
-        print("[INFO] Không tìm thấy mô hình đã huấn luyện. Sử dụng yolov8n.pt (pretrained COCO).")
-        return "yolov8n.pt"
-
-    return None
+    # Dùng mô hình mặc định (YOLOv8 sẽ tự động tải về nếu không có sẵn ở local)
+    print("[INFO] Không tìm thấy mô hình huấn luyện riêng. Sử dụng yolov8n.pt (tự động tải từ Ultralytics).")
+    return "yolov8n.pt"
 
 
 def open_source(source_str):
